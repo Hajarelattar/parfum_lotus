@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Lotus Parfums</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 300;
+            font-style: italic;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c9a961;
+        }
+
+        .hero-about {
+            text-align: center;
+            padding: 100px 60px;
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd0 100%);
+        }
+
+        .hero-about h1 {
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero-about p {
+            font-size: 20px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .story-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-image {
+            height: 500px;
+            background: linear-gradient(135deg, #e8dfd0 0%, #f5f0e8 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .story-content h2 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .story-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .values-section {
+            background: #fafafa;
+            padding: 100px 60px;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-header h2 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .values-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: #f5f0e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 35px;
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #c9a961;
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .excellence-section {
+            max-width: 1200px;
+            margin: 100px auto;
+            padding: 0 60px;
+        }
+
+        .excellence-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .excellence-left h2 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .excellence-left p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: #f5f0e8;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 600;
+            color: #c9a961;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .feature-item {
+            border-left: 3px solid #c9a961;
+            padding-left: 25px;
+        }
+
+        .feature-item h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-header h2 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #030303;
+        }
+
+        .timeline-header p {
+            font-size: 18px;
+            color: #d0a754;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #c9a961;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #c9a961;
+            border: 3px solid #2a2a2a;
+        }
+
+        .timeline-year {
+            font-size: 28px;
+            font-weight: 600;
+            color: #c9a961;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #e3a45d;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 60px 60px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .about-content, .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px 30px;
+            }
+
+            .hero {
+                padding: 80px 30px 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .collection, .about {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Lotus Parfums</a>
+        <nav>
+            <ul>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-about">
+        <h1>L'Excellence en Parfumerie</h1>
+        <p>Depuis plus de 50 ans, nous créons des parfums d'exception qui capturent l'essence de la beauté et de l'élégance. Chaque fragrance est le résultat d'un savoir-faire artisanal unique.</p>
+    </div>
+
+    <section class="story-section">
+        <div class="story-image">🌸</div>
+        <div class="story-content">
+            <h2>Notre Histoire</h2>
+            <p>Fondée en 1970 à Paris, Essence est née de la passion d'un maître parfumeur visionnaire qui rêvait de créer des fragrances qui racontent des histoires.</p>
+            <p>Chaque fragrance est le résultat d'un savoir-faire artisanal unique, mariant tradition et innovation pour créer des expériences olfactives inoubliables.</p>
+            <p>Aujourd'hui, nous continuons d'honorer cet héritage en créant des parfums qui célèbrent la vie, l'amour et la beauté dans toutes ses formes.</p>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <h2>Nos Valeurs</h2>
+                <p>Les principes qui guident chacune de nos créations et définissent notre engagement envers l'excellence.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌿</div>
+                    <h3>Ingrédients Naturels</h3>
+                    <p>Nous sélectionnons avec soin les meilleurs ingrédients naturels du monde entier pour leur qualité exceptionnelle et leur authenticité.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Savoir-Faire Artisanal</h3>
+                    <p>Chaque parfum est créé par des maîtres parfumeurs passionnés qui allient tradition et innovation dans leur art.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Engagement Durable</h3>
+                    <p>Une production respectueuse de l'environnement et des communautés, pour un avenir plus durable et responsable.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💎</div>
+                    <h3>Qualité Premium</h3>
+                    <p>Nous ne faisons aucun compromis sur la qualité, chaque détail est pensé pour offrir une expérience luxueuse.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎨</div>
+                    <h3>Créativité</h3>
+                    <p>L'innovation et la créativité sont au cœur de notre processus, nous repoussons constamment les limites de l'art olfactif.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">❤️</div>
+                    <h3>Passion</h3>
+                    <p>Notre amour pour la parfumerie transparaît dans chaque création, chaque flacon est une œuvre d'amour.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="excellence-section">
+        <div class="excellence-content">
+            <div class="excellence-left">
+                <h2>L'Art de la Création</h2>
+                <p>Notre processus de création est un voyage sensoriel qui commence par la sélection minutieuse des matières premières les plus nobles.</p>
+                <p>Nos maîtres parfumeurs travaillent pendant des mois, voire des années, pour composer chaque fragrance, testant des centaines de combinaisons jusqu'à atteindre la perfection.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Années d'Excellence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Ingrédients Naturels</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Maîtres Parfumeurs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Fait Main</div>
+                    </div>
+                </div>
+            </div>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>Sourcing Responsable</h3>
+                    <p>Nous travaillons directement avec des producteurs du monde entier, garantissant des pratiques équitables et durables tout en préservant la qualité exceptionnelle de nos ingrédients.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Fabrication Artisanale</h3>
+                    <p>Chaque flacon est assemblé à la main dans nos ateliers parisiens, suivant des techniques traditionnelles transmises de génération en génération.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Innovation Continue</h3>
+                    <p>Nous investissons constamment dans la recherche et le développement pour découvrir de nouvelles notes et créer des compositions olfactives uniques.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Exclusivité</h3>
+                    <p>Nos collections sont produites en éditions limitées, garantissant la rareté et l'exclusivité de chaque fragrance que nous créons.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>Notre Parcours</h2>
+                <p>Les moments clés de l'histoire d'Essence, de notre fondation à nos dernières innovations.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1970</div>
+                    <div class="timeline-content">
+                        <h3>Fondation à Paris</h3>
+                        <p>Essence est fondée par le maître parfumeur Antoine Dubois, avec l'ouverture de sa première boutique et atelier.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1985</div>
+                    <div class="timeline-content">
+                        <h3>Lancement du Parfum Iconique "L'Aube"</h3>
+                        <p>Notre première fragrance signature connaît un succès mondial et établit notre réputation d'excellence.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h3>Ouverture de l'Atelier de Grasse</h3>
+                        <p>Essence ouvre un nouvel atelier près de Grasse, le berceau mondial de la parfumerie, pour maîtriser l'approvisionnement en matières premières.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>50e Anniversaire et Collection Éco-Responsable</h3>
+                        <p>Célébration d'un demi-siècle de création et lancement de notre première collection entièrement issue de l'agriculture durable.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Expansion Internationale</h3>
+                        <p>Ouverture de boutiques phares dans les capitales de la mode : New York, Tokyo et Londres.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lotus Parfums</h3>
+                <p>L'art de la parfumerie depuis 1970</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="collection.html">Collection</a>
+                <a href="apropos.html">À Propos</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>MAROC</p>
+                <p>hajarelattar62@gmail.com</p>
+                <p>+212657077052</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Lotus Parfums. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Collection - Lotus Parfums</title>
+    <style>
+        /* BASE & TYPOGRAPHIE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 300;
+            font-style: italic;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c9a961; /* Couleur dorée */
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, #c9805b, #915f2e);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        /* HÉROS DE LA COLLECTION */
+        .collection-hero {
+            text-align: center;
+            padding: 80px 60px 60px;
+        }
+
+        .collection-hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .collection-hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* GRILLE DE LA COLLECTION */
+        .collection-grid {
+            max-width: 1300px;
+            margin: 0 auto 100px;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        /* CARTE DE PARFUM INDIVIDUELLE */
+        .perfume-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .perfume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CONTENEUR D'IMAGE AVEC COULEUR DE FOND */
+        .perfume-image-container {
+            height: 350px; 
+            border-radius: 8px;
+            margin-bottom: 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Assure que l'image ne dépasse pas les bords */
+        }
+
+        /* STYLES DES COULEURS DE FOND */
+        .perfume-card.floral .perfume-image-container {
+            background: #f8e5e5; /* Rose doux */
+        }
+
+        .perfume-card.oriental .perfume-image-container {
+            background: #f7f1e3; /* Beige/jaune doux */
+        }
+
+        .perfume-card.fresh .perfume-image-container {
+            background: #e9f0e9; /* Vert pâle/Frais */
+        }
+
+        .perfume-card.modern .perfume-image-container {
+            background: #f0e6d6; /* Brun pâle/Taupe */
+        }
+
+        /* IMAGE DU FLACON */
+        .perfume-bottle-image {
+            max-height: 90%; 
+            max-width: 90%; 
+            object-fit: contain; 
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s;
+        }
+        
+        .perfume-card:hover .perfume-bottle-image {
+            transform: scale(1.05);
+        }
+
+        /* DÉTAILS DU PARFUM */
+        .category {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #c9a961; /* Couleur dorée */
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .order-button {
+            background-color: #c9a961;
+            color: #fff;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .order-button:hover {
+            background-color: #a38755;
+        }
+
+       /* Footer */
+        footer {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 60px 60px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .about-content, .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+
+            .collection-hero {
+                padding: 60px 30px 40px;
+            }
+
+            .collection-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .collection-hero h1 {
+                font-size: 40px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                padding: 0;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Lotus Parfums</a>
+        <nav>
+            <ul>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="collection-hero">
+        <h1>Notre Collection</h1>
+        <p>Chaque parfum raconte une histoire unique, créé avec les ingrédients les plus fins du monde. Découvrez nos quatre fragrances signatures.</p>
+    </div>
+
+    <section class="collection-grid">
+        <div class="perfume-card floral">
+            <div class="perfume-image-container">
+                <img src="photos/rose éternelle.jpeg" alt="Parfum Rose Éternelle" class="perfume-bottle-image">
+            </div>
+            <p class="category">FLORAL</p>
+            <h3 class="name">Rose Éternelle</h3>
+            <p class="price">120 DH</p>
+            <button class="buy-btn" onclick="orderNow('')">Commander</button>
+        </div>
+
+        <div class="perfume-card oriental">
+            <div class="perfume-image-container">
+                <img src="photos/Noir Absolu.png" alt="Parfum Noir Absolu" class="perfume-bottle-image">
+            </div>
+            <p class="category">ORIENTAL</p>
+            <h3 class="name">Noir Absolu</h3>
+            <p class="price">145 DH</p>
+            <button class="buy-btn" onclick="orderNow('')">Commander</button>
+        </div>
+
+        <div class="perfume-card fresh">
+            <div class="perfume-image-container">
+                <img src="photos/Lumière.jpeg" alt="Parfum Lumière" class="perfume-bottle-image">
+            </div>
+            <p class="category">FRAIS</p>
+            <h3 class="name">Lumière</h3>
+            <p class="price">95 DH</p>
+            <button class="buy-btn" onclick="orderNow('')">Commander</button>
+        </div>
+
+        <div class="perfume-card modern">
+            <div class="perfume-image-container">
+                <img src="photos/Essence Pure.png" alt="Parfum Essence Pure" class="perfume-bottle-image">
+            </div>
+            <p class="category">MODERNE</p>
+            <h3 class="name">Essence Pure</h3>
+            <p class="price">135 DH</p>
+            <button class="buy-btn" onclick="orderNow('')">Commander</button>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lotus Parfums</h3>
+                <p>L'art de la parfumerie depuis 1970</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="collection.html">Collection</a>
+                <a href="apropos.html">À Propos</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>MAROC</p>
+                <p>hajarelattar62@gmail.com</p>
+                <p>+212657077052</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Lotus Parfums. Tous droits réservés.</p>
+        </div>
+    </footer>
+        <script>
+        function orderNow(productName) {
+            const phoneNumber = "212657077052"; 
+            const message = ` Bonjour je veux commander: ${productName}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');          
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
