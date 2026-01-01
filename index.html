@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence - L'Art de la Fragrance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #c9a961;
+        }
+        .buy-btn {
+            background: linear-gradient(135deg, #c9805b, #915f2e);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 60px 60px;
+            background: linear-gradient(135deg, #f5f0e8 0%, #e8dfd0 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 72px;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-content h1 .highlight {
+            color: #c9a961;
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #c9a961;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #b89850;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            border-color: #c9a961;
+            color: #c9a961;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .perfume-bottle {
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+            border-radius: 100px 100px 20px 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .main-perfume-image{
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+            border-radius: 100px 100px 20px 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        /* Collection Section */
+        .collection {
+            padding: 100px 60px;
+            background: #fff;
+        }
+
+        .collection-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .collection-header h2 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .collection-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .product-card:nth-child(1) .product-image { background: linear-gradient(135deg, #f5d7d7 0%, #f0c4c4 100%); }
+        .product-card:nth-child(2) .product-image { background: linear-gradient(135deg, #f5e8c7 0%, #f0ddb0 100%); }
+        .product-card:nth-child(3) .product-image { background: linear-gradient(135deg, #e8d7c7 0%, #dcc8b0 100%); }
+        .product-card:nth-child(4) .product-image { background: linear-gradient(135deg, #f5eac7 0%, #f0e5b0 100%); }
+
+        .product-bottle {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
+            border-radius: 50px 50px 10px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .perfume-image{ 
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5));
+            border-radius: 50px 50px 10px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #c9a961;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 60px;
+            background: #fafafa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-left h2 {
+            font-size: 42px;
+            font-weight: 300;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .about-left p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .feature {
+            border-left: 3px solid #c9a961;
+            padding-left: 25px;
+        }
+
+        .feature h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2a2a2a;
+            color: #fff;
+            padding: 60px 60px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: #c9a961;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .about-content, .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 20px 30px;
+            }
+
+            .hero {
+                padding: 80px 30px 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .collection, .about {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Lotus Parfums</div>
+        <nav>
+            <ul>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                L'Art de la
+                <span class="highlight">Fragrance</span>
+            </h1>
+            <p>Découvrez notre collection exclusive de parfums de luxe, créés avec passion pour capturer l'essence de chaque moment.</p>
+            <div class="hero-buttons">
+                <a href="collection.html" class="btn btn-primary">Découvrir la Collection</a>
+                <a href="apropos.html" class="btn btn-secondary">En Savoir Plus</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="perfume-bottle">
+                <img  src="photos/Back.jpeg" alt="Flacon de Parfum Principal" class="main-perfume-image">
+            </div>
+        </div>
+    </section>
+
+<!-- Collection -->
+    <section id="collection" class="collection">
+        <div class="collection-header">
+            <h2>Notre Collection</h2>
+            <p>Chaque parfum raconte une histoire unique, créé avec les ingrédients les plus fins du monde.</p>
+        </div>
+        <div class="products">
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-bottle">
+                        <img  src="photos/rose éternelle.jpeg" alt="Flacon de Parfum Principal" class="perfume-image">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Floral</div>
+                    <h3 class="product-name">Rose Éternelle</h3>
+                    <p class="product-price">120 DH</p>
+                    <button class="buy-btn" onclick="orderNow('')">Commander</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-bottle">
+                        <img  src="photos/Noir Absolu.png" alt="Flacon de Parfum Principal" class="perfume-image">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Oriental</div>
+                    <h3 class="product-name">Noir Absolu</h3>
+                    <p class="product-price">145 DH</p>
+                    <button class="buy-btn" onclick="orderNow('')">Commander</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-bottle">
+                        <img  src="photos/Lumière.jpeg" alt="Flacon de Parfum Principal" class="perfume-image">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Frais</div>
+                    <h3 class="product-name">Lumière</h3>
+                    <p class="product-price">95 DH</p>
+                    <button class="buy-btn" onclick="orderNow('')">Commander</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="product-bottle">
+                        <img  src="photos/Essence Pure.png" alt="Flacon de Parfum Principal" class="perfume-image">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Moderne</div>
+                    <h3 class="product-name">Essence Pure</h3>
+                    <p class="product-price">135 DH</p>
+                    <button class="buy-btn" onclick="orderNow('')">Commander</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- À Propos -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-left">
+                <h2>L'Excellence en Parfumerie</h2>
+                <p>Depuis plus de 50 ans, nous créons des parfums d'exception qui capturent l'essence de la beauté et de l'élégance.</p>
+                <p>Chaque fragrance est le résultat d'un savoir-faire artisanal unique, mariant tradition et innovation pour créer des expériences olfactives inoubliables.</p>
+            </div>
+            <div class="about-right">
+                <div class="feature">
+                    <h3>Ingrédients Naturels</h3>
+                    <p>Sélectionnés avec soin dans le monde entier pour leur qualité exceptionnelle.</p>
+                </div>
+                <div class="feature">
+                    <h3>Savoir-Faire Artisanal</h3>
+                    <p>Créés par des maîtres parfumeurs passionnés par leur art.</p>
+                </div>
+                <div class="feature">
+                    <h3>Engagement Durable</h3>
+                    <p>Une production respectueuse de l'environnement et des communautés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+<!-- footer -->
+   <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lotus Parfums</h3>
+                <p>L'art de la parfumerie depuis 1970</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <a href="collection.html">Collection</a>
+                <a href="apropos.html">À Propos</a>
+                <a href="Contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>MAROC</p>
+                <p>hajarelattar62@gmail.com</p>
+                <p>+212657077052</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Lotus Parfums. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        function orderNow(productName) {
+            const phoneNumber = "212657077052"; 
+            const message = ` Bonjour je veux commander: ${productName}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.product-card');          
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
